@@ -20,17 +20,22 @@ main {
 }
 
 .Card-Main-Container {
-    width: 40%;
+    width: 30%;
     height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     background-color: rgb(183, 180, 180);
-    padding: 1rem;
+    padding: 0rem 1rem ;
+    gap: .5rem;
 }
 
 .card {
     border-radius: 1rem;
-    width: 15%;
-    height: 12%;
+    width: 23%;
+    height: 15%;
     position: relative;
     background-color: rgb(17, 16, 16);
     overflow: hidden;
