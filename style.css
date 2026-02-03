@@ -61,5 +61,7 @@ main {
 transition: all 0.2s ease ;
 }
 .cb:active{
+    /* position: absolute;
+    z-index: 99; */
 transform: rotatey(90deg);
 }
