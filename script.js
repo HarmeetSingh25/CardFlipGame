@@ -24,14 +24,46 @@ mainArr.forEach((element) => {
   card.appendChild(cb);
   CardMainContainer.appendChild(card);
 });
-
+let count = 0;
 let cards = document.querySelectorAll(".card");
-
+let flag = 0;
+let selectCar = [];
 cards.forEach((elem) => {
   elem.addEventListener("click", (e) => {
-    e.target.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    let ct = elem.querySelector(".ct");
+
+    if (flag == 2) {
+      // selectCar = [];
+      flag = 0;
+      return;
+    } else {
+      flag++;
+      e.target.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      selectCar.push(ct.innerHTML);
+    }
+    if (selectCar.length == 2) {
+      if (selectCar[0] === selectCar[1]) {
+        count += 2;
+        console.log(count);
+        cards.forEach((val) => {
+          let ct = val.querySelector(".ct");
+          if (ct.innerHTML == selectCar[0]) {
+            val.style.transition = "all 0.2s ease ";
+            setTimeout(() => {
+              val.style.display = "none";
+            }, 1000);
+          }
+        });
+      }
+    }
+    
+    if (count == 20) {
+      alert("Game is complete Press ok for play again");
+      window.location.reload();
+    }
     setTimeout(() => {
       e.target.style.backgroundColor = "blue";
-    }, 1000);
+      selectCar = [];
+    }, 2000);
   });
 });
